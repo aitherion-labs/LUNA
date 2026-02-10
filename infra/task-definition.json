@@ -4,8 +4,8 @@
     "requiresCompatibilities": [
       "FARGATE"
     ],
-    "executionRoleArn": "MUDAR AQUI",
-    "taskRoleArn": "MUDAR AQUI",
+    "executionRoleArn": "arn:aws:iam::487317040496:role/agentic-api-20260210154730165400000004",
+    "taskRoleArn": "arn:aws:iam::487317040496:role/agentic-api-20260210154730164900000003",
     "cpu": "512",
     "memory": "1024",
     "containerDefinitions": [
@@ -25,6 +25,14 @@
                 "valueFrom": "arn:aws:ssm:us-east-1:487317040496:parameter/MODEL_ID"
             },
             {
+                "name": "API_TOKEN",
+                "valueFrom": "arn:aws:ssm:us-east-1:487317040496:parameter/API_TOKEN"
+            },
+            {
+                "name": "S3_BUCKET_SESSIONS",
+                "valueFrom": "arn:aws:ssm:us-east-1:487317040496:parameter/S3_BUCKET_SESSIONS"
+            },
+            {
                 "name": "ID_KBS",
                 "valueFrom": "arn:aws:ssm:us-east-1:487317040496:parameter/ID_KBS"
             }
@@ -38,10 +46,6 @@
           }
         },
         "environment": [
-          {
-            "name": "S3_BUCKET_SESSIONS",
-            "value": "luna-assistant-sessions"
-          },
           {
             "name": "PREFIX_SESSIONS",
             "value": "orchestrator/"
