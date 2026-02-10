@@ -1,0 +1,52 @@
+{
+    "family": "agentic-api",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": [
+      "FARGATE"
+    ],
+    "executionRoleArn": "MUDAR AQUI",
+    "taskRoleArn": "MUDAR AQUI",
+    "cpu": "512",
+    "memory": "1024",
+    "containerDefinitions": [
+      {
+        "name": "agentic-api",
+        "image": "487317040496.dkr.ecr.us-east-1.amazonaws.com/agentic-api:latest",
+        "essential": true,
+        "portMappings": [
+          {
+            "containerPort": 8000,
+            "protocol": "tcp"
+          }
+        ],
+        "secrets": [
+            {
+                "name": "MODEL_ID",
+                "valueFrom": "arn:aws:ssm:us-east-1:487317040496:parameter/MODEL_ID"
+            },
+            {
+                "name": "ID_KBS",
+                "valueFrom": "arn:aws:ssm:us-east-1:487317040496:parameter/ID_KBS"
+            }
+        ],
+        "logConfiguration": {
+          "logDriver": "awslogs",
+          "options": {
+            "awslogs-group": "/aws/ecs/agentic-api/agentic-api",
+            "awslogs-region": "us-east-1",
+            "awslogs-stream-prefix": "ecs"
+          }
+        },
+        "environment": [
+          {
+            "name": "S3_BUCKET_SESSIONS",
+            "value": "luna-assistant-sessions"
+          },
+          {
+            "name": "PREFIX_SESSIONS",
+            "value": "orchestrator/"
+          }
+        ]
+      }
+    ]
+}
