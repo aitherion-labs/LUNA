@@ -59,7 +59,7 @@ async def lifespan(app: FastAPI):
 # App and security setup
 # -----------------------------------------------------------------------------
 # Build auth dependency allowing health endpoint without token
-_token_auth = get_bearer_auth_dependency("API_TOKEN", skip_paths={"/health"})
+_token_auth = get_bearer_auth_dependency("API_TOKEN", skip_paths={"/agentic-api/health"})
 app = FastAPI(dependencies=[Depends(_token_auth)], lifespan=lifespan)
 
 # Request-ID middleware
