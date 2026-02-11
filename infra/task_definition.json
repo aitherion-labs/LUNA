@@ -23,19 +23,19 @@
         "secrets": [
             {
                 "name": "MODEL_ID",
-                "valueFrom": "arn:aws:ssm:us-east-1:487317040496:parameter/MODEL_ID"
+                "valueFrom": "arn:aws:ssm:us-east-1:487317040496:parameter/agentic-api/MODEL_ID"
             },
             {
                 "name": "API_TOKEN",
-                "valueFrom": "arn:aws:ssm:us-east-1:487317040496:parameter/API_TOKEN"
+                "valueFrom": "arn:aws:ssm:us-east-1:487317040496:parameter/agentic-api/API_TOKEN"
             },
             {
                 "name": "S3_BUCKET_SESSIONS",
-                "valueFrom": "arn:aws:ssm:us-east-1:487317040496:parameter/S3_BUCKET_SESSIONS"
+                "valueFrom": "arn:aws:ssm:us-east-1:487317040496:parameter/agentic-api/S3_BUCKET_SESSIONS"
             },
             {
                 "name": "ID_KBS",
-                "valueFrom": "arn:aws:ssm:us-east-1:487317040496:parameter/ID_KBS"
+                "valueFrom": "arn:aws:ssm:us-east-1:487317040496:parameter/agentic-api/ID_KBS"
             }
         ],
         "logConfiguration": {
