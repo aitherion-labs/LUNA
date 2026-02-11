@@ -8,6 +8,11 @@ from services.agent_service import process_agent_request, process_agent_request_
 router = APIRouter()
 
 
+@router.get("/agentic-api/health", tags=["Health"])
+async def health():
+    return {"status": "ok"}
+
+
 @router.post("/agent", response_model=AckResponse)
 def handle_request(request: ChatRequest, background_tasks: BackgroundTasks):
     """Schedules agent processing in background and returns immediately."""
