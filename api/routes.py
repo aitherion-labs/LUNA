@@ -13,7 +13,7 @@ async def health():
     return {"status": "ok"}
 
 
-@router.post("/agent", response_model=AckResponse)
+@router.post("/agentic-api/agent", response_model=AckResponse)
 def handle_request(request: ChatRequest, background_tasks: BackgroundTasks):
     """Schedules agent processing in background and returns immediately."""
     background_tasks.add_task(
@@ -28,7 +28,7 @@ def handle_request(request: ChatRequest, background_tasks: BackgroundTasks):
     )
 
 
-@router.post("/chat", response_model=ChatTextResponse)
+@router.post("/agentic-api/chat", response_model=ChatTextResponse)
 async def handle_chat(request: ChatRequest):
     """Processes chat and returns the text output, without blocking the event loop."""
     response = await process_agent_request_async(
