@@ -96,7 +96,7 @@ async def unhandled_exception_handler(request: Request, exc: Exception):
 # -----------------------------------------------------------------------------
 # Healthcheck (public)
 # -----------------------------------------------------------------------------
-@app.get("/health")
+@app.get("/agentic-api/health")
 async def health():
     return {"status": "ok"}
 
