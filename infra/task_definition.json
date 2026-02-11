@@ -17,8 +17,7 @@
           {
             "name": "agentic-api-http",
             "containerPort": 8000,
-            "protocol": "tcp",
-            "appProtocol": "http"
+            "protocol": "tcp"
           }
         ],
         "secrets": [
