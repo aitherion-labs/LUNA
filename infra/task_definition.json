@@ -15,8 +15,10 @@
         "essential": true,
         "portMappings": [
           {
+            "name": "agentic-api-http",
             "containerPort": 8000,
-            "protocol": "tcp"
+            "protocol": "tcp",
+            "appProtocol": "http"
           }
         ],
         "secrets": [
