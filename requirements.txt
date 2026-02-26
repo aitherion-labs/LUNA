@@ -6,3 +6,5 @@ pydantic-settings>=2.4.0,<3.0
 strands-agents>=1.15.0,<2.0
 strands-agents-tools>=0.1.0,<2.0
 strands-agents-builder>=0.1.0,<2.0
+pandas>=2.0.0,<3.0
+cachetools>=5.3.0,<6.0

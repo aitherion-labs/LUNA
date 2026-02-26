@@ -1,8 +1,7 @@
-from functools import lru_cache
-
 import boto3
 import pandas as pd
 from botocore.exceptions import ClientError
+from cachetools import TTLCache, cached
 
 BUCKET_NAME = "microgenesys-etl-files"
 
@@ -23,7 +22,7 @@ def project_exists(project_name: str) -> bool:
         return False
 
 
-@lru_cache(maxsize=10)
+@cached(cache=TTLCache(maxsize=10, ttl=120))
 def load_project_csv(project_name: str, filename: str) -> pd.DataFrame:
     """
     Carrega qualquer CSV de um projeto do S3 (com cache de memória).
