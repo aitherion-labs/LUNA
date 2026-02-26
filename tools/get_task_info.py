@@ -1,3 +1,5 @@
+from typing import Optional
+
 import pandas as pd
 from strands import tool
 
@@ -5,8 +7,8 @@ from utils.aws_utils import load_project_csv, project_exists
 
 
 @tool
-def get_task_info(
-        task_identifier: str, project_name: str, wbs_name: str = None) -> dict:
+def get_task_info(task_identifier: str, project_name: str,
+                  wbs_name: Optional[str] = None) -> dict:
     """
     Procura os detalhes de uma atividade (tarefa) no cronograma.
 d
@@ -67,7 +69,6 @@ d
 
     # Avaliar quantas tarefas restaram
     if len(resultado) == 1:
-        # Sucesso absoluto: encontrou apenas uma
         tarefa_dict = resultado.iloc[0].to_dict()
         return {k: v for k, v in tarefa_dict.items() if pd.notna(v)}
 
